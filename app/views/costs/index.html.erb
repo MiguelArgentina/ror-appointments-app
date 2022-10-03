@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Costs</h1>
+
+  <div id="costs2">
+    <%= render 'costs', costs: @costs %>
+  </div>
+
+<%= turbo_frame_tag "new_cost_turbo_frame" do %>
+  <div class="col-12 col-md-4 col-xl-3">
+    <%= link_to new_cost_path, class: "text-decoration-none" do %>
+      <h2 class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> New price</span></h2>
+    <% end %>
+  </div>
+<% end %>

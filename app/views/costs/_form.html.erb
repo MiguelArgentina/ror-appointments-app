@@ -1,0 +1,33 @@
+<%= form_with(model: cost) do |form| %>
+  <% if cost.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cost.errors.count, "error") %> prohibited this cost from being saved:</h2>
+
+      <ul>
+        <% cost.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.datetime_field :start_date, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :currency, style: "display: block" %>
+    <%= form.select :currency, options_for_currency, {}, class: 'form-select' %>
+  </div>
+
+  <div>
+    <%= form.submit 'Crear', class: 'mt-2 btn btn-success' %>
+  </div>
+<% end %>

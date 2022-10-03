@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "booking_types" do %>
+  <div class="container">
+    <div class="row">
+      <% booking_types.each do |booking_type| %>
+        <%= render booking_type %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Booking types</h1>
+
+<div id="booking_types2">
+  <%= render 'booking_types', booking_types: @booking_types %>
+</div>
+
+<%= turbo_frame_tag "new_booking_type_turbo_frame" do %>
+  <div class="col-12 col-md-4 col-xl-3">
+    <%= link_to new_booking_type_path, class: "text-decoration-none" do %>
+      <h4 class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> New booking type </span></h4>
+    <% end %>
+  </div>
+<% end %>

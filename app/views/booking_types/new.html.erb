@@ -1,0 +1,9 @@
+<h1>New booking type</h1>
+<%= turbo_frame_tag "new_booking_type_turbo_frame" do %>
+  <%= render "form", booking_type: @booking_type %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to booking types", booking_types_path %>
+</div>

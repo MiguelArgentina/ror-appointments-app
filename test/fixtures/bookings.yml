@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  start_time: 2022-09-08 13:55:34
+  owes_payment: false
+
+two:
+  code: MyString
+  start_time: 2022-09-08 13:55:34
+  owes_payment: false

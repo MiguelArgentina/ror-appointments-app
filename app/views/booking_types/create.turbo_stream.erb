@@ -1,0 +1,12 @@
+<%= turbo_stream.replace "booking_types" do %>
+  <%= render 'booking_types', booking_types: @booking_types %>
+<% end %>
+<%= turbo_stream.replace "new_booking_type_turbo_frame" do %>
+  <%= turbo_frame_tag "new_booking_type_turbo_frame" do %>
+    <div class="col-12 col-md-4 col-xl-3">
+      <%= link_to new_booking_type_path, class: "text-decoration-none" do %>
+        <h2 class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> New booking type</span></h2>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

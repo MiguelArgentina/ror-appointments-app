@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "costs" do %>
+  <div class="container">
+    <div class="row">
+      <% costs.each do |cost| %>
+        <%= render cost %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

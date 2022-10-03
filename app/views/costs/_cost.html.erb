@@ -1,0 +1,13 @@
+<div id="<%= "#{dom_id cost}_wrapper" %>" class="col-12 col-md-4 col-xl-3">
+  <%= turbo_frame_tag cost do %>
+    <%= link_to cost, class: "text-decoration-none", data: {turbo: false}  do %>
+      <div class="card bg-c-<%= %w[blue green yellow pink].sample %> order-card">
+        <div class="card-block">
+          <h6 class="m-b-20">Start date: <span class="f-right"><%= " #{cost.start_date.strftime('%d-%b-%Y')}" %></span></h6>
+          <h4 class="text-right">Amount:<span class="f-right"><%= " #{cost.amount} #{cost.currency}" %></span></h4>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

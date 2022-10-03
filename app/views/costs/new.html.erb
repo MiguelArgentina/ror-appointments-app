@@ -1,0 +1,13 @@
+<h1>New cost</h1>
+
+<%= turbo_frame_tag "new_cost_turbo_frame" do %>
+  <%= render "form", cost: @cost %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to costs", costs_path %>
+</div>
+
+

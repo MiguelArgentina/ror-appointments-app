@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "https://sdk.mercadopago.com/js/v2" %>
+<% end %>
+<h2>Pay a booking</h2>
+<%= render 'booking', booking: @booking %>
+
+<br>
+<h4>You are paying:</h4>
+<br>
+<p>Service: <strong><%= @preference['items'][0]['title'] %></strong></p>
+<p>Amount: <strong><%= @preference['items'][0]['unit_price'] %></strong></p>
+<p>Currency: <strong><%= @preference['items'][0]['currency_id'] %></strong></p>
+<p>Payment id: <strong><%= @preference['id'] %></strong></p>
+<br>
+
+<div class="cho-container"></div>
+<script>
+    const mp = new MercadoPago('<%= @public_key %>', {
+        locale: 'es-AR'
+    });
+
+    mp.checkout({
+        preference: {
+            id: '<%= @preference_id %>'
+        },
+        render: {
+            container: '.cho-container',
+            label: 'Mercado Pago'
+        }
+    });
+</script>

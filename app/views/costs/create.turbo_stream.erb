@@ -1,0 +1,18 @@
+    <% puts "@" * 80 %>
+   <% puts request.referrer %>
+   <% puts Rails.application.routes.recognize_path(request.referrer)[:controller] %>
+   <% puts Rails.application.routes.recognize_path(request.referrer)[:action] %>
+   <% puts "@" * 80 %>
+
+<%= turbo_stream.replace "costs" do %>
+  <%= render 'costs', costs: @costs %>
+<% end %>
+<%= turbo_stream.replace "new_cost_turbo_frame" do %>
+  <%= turbo_frame_tag "new_cost_turbo_frame" do %>
+    <div class="col-12 col-md-4 col-xl-3">
+      <%= link_to new_cost_path, class: "text-decoration-none" do %>
+        <h2 class="text-success"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> New price</span></h2>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
