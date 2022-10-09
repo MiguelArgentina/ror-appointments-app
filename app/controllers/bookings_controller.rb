@@ -22,17 +22,17 @@ class BookingsController < ApplicationController
         }
       ],
       "payer": {
-        "name": "Juan",
-        "surname": "Lopez",
-        "email": "user@email.com",
+        "name": @booking.user.email.split('@').first,
+        "surname": @booking.user.email.split('@').last,
+        "email": @booking.user.email,
         "phone": {
           "area_code": "11",
           "number": "4444-4444"
         },
         "address": {
-          "street_name": "Street",
-          "street_number": 123,
-          "zip_code": "5700"
+          "street_name": "Paraguay",
+          "street_number": "4786",
+          "zip_code": "4000"
         }
       },
       back_urls: {
@@ -43,15 +43,11 @@ class BookingsController < ApplicationController
       auto_return: 'approved'
     }
     preference_response = sdk.preference.create(preference_data)
-    preference = preference_response[:response]
-    puts "#-" * 50
-    puts preference
-    puts "#-" * 50
+    @preference = preference_response[:response]
     # Este valor reemplazará el string "<%= @preference_id %>" en tu HTML
-    @preference_id = preference['id']
+    @preference_id = @preference['id']
     if @preference_id
       @booking.update(preference_id: @preference_id)
-    @preference = preference
     @public_key = mercado_pago_public_key
     else
       redirect_to booking_url(@booking), notice: 'No se pudo crear la preferencia de pago'

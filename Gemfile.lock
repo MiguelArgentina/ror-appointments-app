@@ -257,9 +257,9 @@ GEM
     zeitwerk (2.6.1)
 
 PLATFORMS
-  x86_64-linux
   arm64-darwin-21
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   annotate

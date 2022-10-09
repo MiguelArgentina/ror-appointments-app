@@ -12,8 +12,14 @@
 <p>Currency: <strong><%= @preference['items'][0]['currency_id'] %></strong></p>
 <p>Payment id: <strong><%= @preference['id'] %></strong></p>
 <br>
+<br>
+<p>Buyer: <strong><%= "#{@preference['payer']['name']} #{@preference['payer']['surname']}" %></strong></p>
+<p>Address: <strong><%= "#{@preference['payer']['address']['street_name']} #{@preference['payer']['address']['street_number']}" %></strong></p>
+<p>Phone: <strong><%= "#{@preference['payer']['phone']['area_code']} #{@preference['payer']['phone']['number']}" %></strong></p>
+
 
 <div class="cho-container"></div>
+<br><br>
 <script>
     const mp = new MercadoPago('<%= @public_key %>', {
         locale: 'es-AR'

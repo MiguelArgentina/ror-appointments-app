@@ -14,8 +14,3 @@
   )
   puts "To login as #{user_type} use email: #{user_type}@mail.com and password: 123456"
 end
-
-
-%w[admin provider client].each do |user_type|
-  puts "To login as #{user_type} use email: #{user_type}@mail.com and password: 123456"
-end
