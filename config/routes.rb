@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :bookings do
     member do
       post 'pay'
+      get 'failure'
+      get 'success'
+      get 'pending'
     end
   end
   post 'bookings/webhook', to: 'bookings#webhook'

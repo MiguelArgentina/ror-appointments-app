@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_021108) do
   create_table "bookings", force: :cascade do |t|
     t.decimal "amount"
     t.string "code"
+    t.string "preference_id"
     t.datetime "start_time"
     t.boolean "owes_payment"
     t.datetime "created_at", null: false

@@ -25,52 +25,7 @@
   <br>
   <%= f.input :start_time, as: :time, minute_step: 15 %>
 
-  <%= f.label :owes_payment, style: "display: block" %>
-  <%= f.input_field :owes_payment, as: :boolean %>
+
   <br>
   <%= f.submit 'Save' %>
 <% end %>
-
-
-<%#= form_with(model: booking) do |form| %>
-  <%# if booking.errors.any? %>
-<!--    <div style="color: red">-->
-<!--      <h2><%#= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>-->
-
-<!--      <ul>-->
-        <%# booking.errors.each do |error| %>
-<!--          <li><%#= error.full_message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-
-    <%#= form.hidden_field :user_id, value: current_user.id %>
-
-<!--<div data-controller="booking booking_type" >-->
-<!--  <div>-->
-    <%#= form.label :provider, style: "display: block" %>
-    <%#= form.select :provider, User.provider.pluck(:email, :id), { prompt: "Select a provider" }, {class: 'form-select', data: { action: "change->booking#change"} } %>
-<!--  </div>-->
-<!--  <div>-->
-    <%#= form.label :booking_type_id, style: "display: block" %>
-    <%#= form.select :booking_type_id, [], { prompt: "Select a service" },{ class: 'form-select', data: { action: "change->booking_type#change", booking_target: "bookingType"} } %>
-<!--  </div>-->
-<!--</div>-->
-
-<!--  <div>-->
-    <%#= form.label :start_time, style: "display: block" %>
-    <%#= form.datetime_field :start_time, {minute_step: 15} %>
-    <%#= form.datetime_field :start_time, {minute_step: 15} %>
-    <%#= form.input_field :start_time, as: :time, ampm: true, minute_step: 15 %>
-<!--  </div>-->
-
-<!--  <div>-->
-    <%#= form.label :owes_payment, style: "display: block" %>
-    <%#= form.check_box :owes_payment %>
-<!--  </div>-->
-
-<!--  <div>-->
-    <%#= form.submit %>
-<!--  </div>-->
-<%# end %>
