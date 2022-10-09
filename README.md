@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an appointments booking system with payment integration just to practice my skills.
+Payments are made with [MercadoPago](https://www.mercadopago.com.ar/developers/es) (already 
+functional with a test key) and with [Stripe](https://stripe.com/docs/payments/checkout) (TODO)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Live demo: 
+  * [https://tucu-appointments-booking.herokuapp.com/](https://tucu-appointments-booking.herokuapp.com/)
+* Ruby version: 3.0.3
+* Rails version: 7.0.3.1
+* Database: postgresql@12 or higher
 
 * Database creation
+  * Run:
+    ```
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    ```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Running the app
+    * Run:
+        ```
+        rails s
+        ```
+    * Open your browser and go to `localhost:3000`
