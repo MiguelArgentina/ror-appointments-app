@@ -2,7 +2,7 @@
 
 This is an appointments booking system with payment integration just to practice my skills.
 Payments are made with [MercadoPago](https://www.mercadopago.com.ar/developers/es) (already 
-functional with a test key) and with [Stripe](https://stripe.com/docs/payments/checkout) (TODO)
+functional with a test key) and with [Stripe](https://stripe.com/docs/payments/checkout)
 
 * Live demo: 
   * [https://tucu-appointments-booking.herokuapp.com/](https://tucu-appointments-booking.herokuapp.com/)

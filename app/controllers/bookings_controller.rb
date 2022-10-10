@@ -2,7 +2,7 @@ require 'mercadopago'
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
 
-  def pay
+  def mercadopago_payment
     mercado_pago_access_token = Rails.application.credentials.dig(:development, :mercado_pago, :access_token)
     mercado_pago_public_key = Rails.application.credentials.dig(:development, :mercado_pago, :public_key)
     @booking = Booking.find(params[:id])
@@ -54,11 +54,23 @@ class BookingsController < ApplicationController
     end
   end
 
+  def stripe_payment
+    @booking = Booking.find(params[:id])
+    current_user.payment_processor.customer
+
+    @checkout_session = current_user.payment_processor.checkout(
+      mode: "payment",
+      line_items: "price_1KGBFmL1sbzE61KCcRUkZ9lh",
+      success_url: success_booking_url(@booking, only_path: false),
+      )
+  end
+
   def success
     puts "#" * 50
     puts params
     puts "#" * 50
-    @booking = Booking.find_by(preference_id: params[:preference_id])
+    @booking = Booking.find_by(preference_id: params[:preference_id]) if params[:preference_id]
+    @booking = Booking.find_by(id: params[:id]) if params[:id]
     @booking.update(owes_payment: false)
     redirect_to booking_url(@booking), notice: 'Pago realizado con éxito'
   end

@@ -82,3 +82,6 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'simple_form'
 gem 'mercadopago-sdk'
+gem "pay", "~> 5.0"
+gem "stripe", "~> 7.0"
+

@@ -5,7 +5,9 @@
     <p class="card-text">Start time: <span><%= booking.start_time %></span></p>
     <p class="card-text">Owes payment: <span><%= booking.owes_payment %></span></p>
     <% if current_user.client? && booking.owes_payment && action_name != 'pay' %>
-      <%= button_to "Pay", pay_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
+      <%= button_to "Pay with MercadoPago", mercadopago_payment_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
+      <br>
+      <%= button_to "Pay with Stripe", stripe_payment_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
     <% end %>
     <% if current_user.provider? %>
       <p class="card-text">User: <span><%= booking.user.email %></span></p>

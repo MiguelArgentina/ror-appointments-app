@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 %w[admin provider client].each do |user_type|
-  User.create!(
+    User.create!(
+    :name => "#{user_type}",
     :email => "#{user_type}@mail.com",
     :password => '123456',
     :password_confirmation => '123456',

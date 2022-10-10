@@ -18,6 +18,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  pay_customer default_payment_processor: :stripe
+
   enum user_type: { client: 0, provider: 1, admin: 2 }
 
   #Associations
