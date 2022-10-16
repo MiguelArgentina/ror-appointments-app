@@ -1,9 +1,9 @@
 <div class="card col-12 col-md-3 mx-2" id="<%= dom_id booking %>">
   <div class="card-body">
-    <h5 class="card-title"><%= booking.booking_type.name %></h5>
+    <h5 class="card-title text-primary"><%= booking.booking_type.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= booking.code %></h6>
-    <p class="card-text">Start time: <span><%= booking.start_time %></span></p>
-    <p class="card-text">Owes payment: <span><%= booking.owes_payment %></span></p>
+    <p class="card-text text-primary">Start time: <span><%= booking.start_time %></span></p>
+    <p class="card-text text-primary">Owes payment: <span><%= booking.owes_payment %></span></p>
     <% if current_user.client? && booking.owes_payment && action_name != 'pay' %>
       <%= button_to "Pay with MercadoPago", mercadopago_payment_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
       <br>

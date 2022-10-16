@@ -15,17 +15,22 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div data-controller="booking booking_type" >
-    <%= f.association :provider, as: :select, collection: User.providers, label_method: :email, value_method: :id, input_html: { data: { action: "change->booking#change"}} %>
 
-    <%= f.label :booking_type_id, style: "display: block" %>
-    <%= f.input_field :booking_type_id, as: :select, collection: [], data: { action: "change->booking_type#change", booking_target: "bookingType"} %>
+
+      <%= f.association :provider, collection: User.providers, label_method: :email, value_method: :id, prompt: "Select a provider", input_html: { data: { action: "change->booking#change"}, :class => 'form-select'} %>
+
+      <%= f.input_field :booking_type_id, class: "form-select form-select-lg mb-3", as: :select, collection: [], data: { action: "change->booking_type#change", booking_target: "bookingType"}, prompt: "After selecting a provider, you can select a service" %>
+
   </div>
 
-  <%= f.input :start_time, as: :date, html5: true%>
-  <br>
-  <%= f.input :start_time, as: :time, minute_step: 15 %>
-
+    <%= f.input :start_time, as: :date, html5: true, class: 'form-select' %>
 
   <br>
-  <%= f.submit 'Save' %>
+
+    <%= f.input :start_time, as: :time, minute_step: 15, class: 'form-control' %>
+
+
+
+  <br>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>

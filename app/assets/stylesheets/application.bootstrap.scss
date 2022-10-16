@@ -1,4 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
+@import 'glare-bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 body{
   margin-top:20px;
@@ -24,6 +25,10 @@ body{
   background: linear-gradient(45deg,#FF5370,#ff869a);
 }
 
+.bg-gradient-primary-custom {
+  background: rgb(121,217,232);
+  background: linear-gradient(90deg, rgba(121,217,232,1) 0%, rgba(90,208,217,0.41642594537815125) 47%, rgba(127,198,209,0.7273503151260504) 100%);
+}
 
 .card {
   border-radius: 5px;
