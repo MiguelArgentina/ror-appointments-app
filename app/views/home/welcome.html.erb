@@ -3,5 +3,31 @@
   <h5>To login as client use email: client@mail.com and password: 123456</h5>
   <h5>or even better, you can just <%= link_to 'sign up!', new_user_registration_path %></h5>
 <br>
-
 </p>
+
+
+<!-- Services-->
+<%= render 'home/welcome/services' %>
+<!-- Booking Types Grid-->
+<%= render 'home/welcome/booking_types' %>
+<!-- Team-->
+<%= render 'home/welcome/team' %>
+<!-- Contact-->
+<%= render 'home/welcome/contact_us' %>
+<!-- Footer-->
+<footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+      <div class="col-lg-4 my-3 my-lg-0">
+        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
