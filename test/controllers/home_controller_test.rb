@@ -6,7 +6,13 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get dashboard" do
+  test "to get dashboard should be signed in " do
+    get home_dashboard_url
+    assert_response :redirect
+  end
+
+  test "should get dashboard if signed_in" do
+    sign_in users(:client)
     get home_dashboard_url
     assert_response :success
   end

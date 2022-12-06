@@ -66,9 +66,6 @@ class BookingsController < ApplicationController
   end
 
   def success
-    puts "#" * 50
-    puts params
-    puts "#" * 50
     @booking = Booking.find_by(preference_id: params[:preference_id]) if params[:preference_id]
     @booking = Booking.find_by(id: params[:id]) if params[:id]
     @booking.update(owes_payment: false)
@@ -105,7 +102,8 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params.except('start_time'))
+    @booking.start_time = params[:booking][:start_time].in_time_zone(current_user.timezone)
     current_amount = @booking.booking_type.cost.amount
     @booking.amount = current_amount
     current_amount == 0 ? @booking.owes_payment = false : @booking.owes_payment = true

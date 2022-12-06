@@ -14,6 +14,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :timezone %>
+    <%= f.select :timezone, ActiveSupport::TimeZone.all.collect {|tz| ["(GMT#{ActiveSupport::TimeZone.seconds_to_utc_offset(tz.utc_offset)}) #{tz.name}", tz.tzinfo.name]}, { include_blank: true }, class: 'form-select' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :user_type %>
     <%= f.select :user_type, User.user_types.keys.map {|user_type| [user_type.titleize,user_type]}, {}, class: 'form-select' %>
   </div>

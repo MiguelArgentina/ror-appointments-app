@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  start_date :datetime
-#  amount     :integer
+#  amount     :decimal(, )
 #  currency   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -2,15 +2,20 @@
   <div class="card-body">
     <h5 class="card-title text-primary"><%= booking.booking_type.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= booking.code %></h6>
-    <p class="card-text text-primary">Start time: <span><%= booking.start_time %></span></p>
+    <p class="card-text text-primary">Start time: <span><%= booking.start_time.in_time_zone(current_user.timezone) %></span></p>
     <p class="card-text text-primary">Owes payment: <span><%= booking.owes_payment %></span></p>
     <% if current_user.client? && booking.owes_payment && action_name != 'pay' %>
       <%= button_to "Pay with MercadoPago", mercadopago_payment_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
       <br>
+      <% create_calendar_links booking %>
       <%= button_to "Pay with Stripe", stripe_payment_booking_path(booking), class: "btn btn-primary", data: {turbo: false} %>
     <% end %>
     <% if current_user.provider? %>
       <p class="card-text">User: <span><%= booking.user.email %></span></p>
     <% end %>
+    <div class="mt-2">Add to calendar:</div>
+    <%= link_to "Google Galendar", create_calendar_links(booking).google_url, class: "link-secondary", target: :_blank, data: {turbo: false} %>
+    <br>
+    <%= link_to "Download iCal", create_calendar_links(booking).ical_url, class: "link-secondary", target: :_blank, data: {turbo: false} %>
   </div>
 </div>

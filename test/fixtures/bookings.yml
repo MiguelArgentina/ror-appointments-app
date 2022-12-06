@@ -1,11 +1,32 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id              :bigint           not null, primary key
+#  amount          :decimal(, )
+#  code            :string
+#  preference_id   :string
+#  start_time      :datetime
+#  owes_payment    :boolean
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  booking_type_id :bigint           not null
+#  user_id         :bigint           not null
+#  provider_id     :bigint           not null
+#
 
 one:
   code: MyString
   start_time: 2022-09-08 13:55:34
   owes_payment: false
+  booking_type: one_hour
+  user: client
+  provider: provider
 
 two:
   code: MyString
   start_time: 2022-09-08 13:55:34
   owes_payment: false
+  booking_type: free
+  user: client
+  provider: provider

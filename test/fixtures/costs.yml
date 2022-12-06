@@ -1,11 +1,24 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: costs
+#
+#  id         :bigint           not null, primary key
+#  start_date :datetime
+#  amount     :decimal(, )
+#  currency   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :bigint           not null
+#
 
-one:
+ten_pesos:
   start_date: 2022-09-10 17:14:02
-  amount: 1
-  currency: MyString
+  amount: 10
+  currency: 0
+  user: provider
 
-two:
+free:
   start_date: 2022-09-10 17:14:02
-  amount: 1
-  currency: MyString
+  amount: 0
+  currency: 1
+  user: provider

@@ -2,7 +2,8 @@ require "test_helper"
 
 class CostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @cost = costs(:one)
+    sign_in users(:provider)
+    @cost = costs(:ten_pesos)
   end
 
   test "should get index" do
@@ -16,8 +17,9 @@ class CostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create cost" do
+    user = users(:provider)
     assert_difference("Cost.count") do
-      post costs_url, params: { cost: { amount: @cost.amount, currency: @cost.currency, start_date: @cost.start_date } }
+      post costs_url, params: { cost: { user_id: user.id, amount: @cost.amount, currency: @cost.currency, start_date: @cost.start_date } }
     end
 
     assert_redirected_to cost_url(Cost.last)
@@ -38,11 +40,4 @@ class CostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to cost_url(@cost)
   end
 
-  test "should destroy cost" do
-    assert_difference("Cost.count", -1) do
-      delete cost_url(@cost)
-    end
-
-    assert_redirected_to costs_url
-  end
 end

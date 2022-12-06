@@ -12,11 +12,6 @@ class CostsController < ApplicationController
 
   # GET /costs/new
   def new
-    # puts "@" * 80
-    # puts request.referrer
-    # puts Rails.application.routes.recognize_path(request.referrer)[:controller]
-    # puts Rails.application.routes.recognize_path(request.referrer)[:action]
-    # puts "@" * 80
     @cost = Cost.new(start_date: Time.new.strftime("%Y-%m-%dT%k:%M"))
   end
 
@@ -28,6 +23,7 @@ class CostsController < ApplicationController
   def create
     referrer_controller = Rails.application.routes.recognize_path(request.referrer)[:controller]
     @cost = Cost.new(cost_params)
+    binding.pry
     respond_to do |format|
       if @cost.save
         @costs = Cost.all.order(start_date: :desc)

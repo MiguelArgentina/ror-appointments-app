@@ -7,7 +7,6 @@
 #  cost_id    :bigint           not null
 #  duration   :integer
 #  name       :string
-#  free       :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -2,6 +2,7 @@ require "test_helper"
 
 class BookingsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:provider)
     @booking = bookings(:one)
   end
 
@@ -17,7 +18,10 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking" do
     assert_difference("Booking.count") do
-      post bookings_url, params: { booking: { code: @booking.code, owes_payment: @booking.owes_payment, start_time: @booking.start_time } }
+      booking_type = booking_types(:free)
+      user = users(:client)
+      provider = users(:provider)
+      post bookings_url, params: { booking: {provider_id: provider.id, user_id: user.id, booking_type_id: booking_type.id, code: @booking.code, owes_payment: @booking.owes_payment, start_time: @booking.start_time } }
     end
 
     assert_redirected_to booking_url(Booking.last)

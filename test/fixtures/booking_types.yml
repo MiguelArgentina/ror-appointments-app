@@ -1,15 +1,24 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: booking_types
+#
+#  id         :bigint           not null, primary key
+#  user_id    :bigint           not null
+#  cost_id    :bigint           not null
+#  duration   :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
-one:
-  user: one
-  cost: one
+one_hour:
+  user: provider
+  cost: ten_pesos
   duration: 1
-  name: MyString
-  free: false
+  name: '1 hour session'
 
-two:
-  user: two
-  cost: two
+free:
+  user: provider
+  cost: free
   duration: 1
-  name: MyString
-  free: false
+  name: 'Free session'

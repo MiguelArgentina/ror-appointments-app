@@ -10,7 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string           default("Unnamed user")
 #  user_type              :integer          default("client")
+#  timezone               :string
 #
 require "test_helper"
 

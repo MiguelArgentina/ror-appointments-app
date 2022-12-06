@@ -66,6 +66,9 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    add_to_calendar (0.2.5)
+      tzinfo (>= 1.1, < 3)
+      tzinfo-data (~> 1.2020)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     annotate (3.2.0)
@@ -164,6 +167,8 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -237,6 +242,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.6)
+      tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
@@ -265,6 +272,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  add_to_calendar
   annotate
   bootsnap
   capybara
@@ -279,6 +287,7 @@ DEPENDENCIES
   pay (~> 5.0)
   pg (~> 1.1)
   pry
+  pry-rails
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   selenium-webdriver
